@@ -1,14 +1,23 @@
-name: GitHub Actions Demo
+# this is a basic workflow to help you get started with GitHub Actions
+name: GitHub Actions Demo # the name of your workflow file in Github.com
+# the run-name shows up in the Actions tab in Github.com. 
+# github.actor is the username of the person who triggered the workflow
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+# controls when the workflow will run
+# this workflow runs when you push code to any branch in your repository
 on: [push]
 jobs:
+# the name of the job is Explore-GitHub-Actions
   Explore-GitHub-Actions:
+  # the type of runner that the job will run on (latest version of linux)
     runs-on: ubuntu-latest
     steps:
+    # echo statements to print out information about the workflow run
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
+      #  This step checks out a copy of your repository on the runner
         uses: actions/checkout@v4
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
